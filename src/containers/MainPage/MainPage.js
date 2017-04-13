@@ -1,61 +1,51 @@
 import React, { Component, PropTypes } from 'react';
 import styled from 'styled-components';
-import {
-  Square as _Square,
-  OddRow,
-  EvenRow,
-  ShowOrHide
-} from '../../components';
+
+const Container = styled.div`
+  display: flex;
+  justify-content: flex-end;
+`
+const Image = styled.img`
+  position: absolute;
+  left: 40%;
+  width: 60%;
+  top: 2.75em;
+  z-index: -1;
+`
+const LeftBox = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+const RightBox = styled.div`
+  width: 630px;
+  position: relative;
+  padding: 0 30px;
+`
+
+const Quote = styled.p`
+  width: 40%;
+`
+
+const H1 = styled.h1`
+  font-size: 5em;
+`
 
 export default class MainPage extends Component {
   static propTypes = {};
 
   render() {
     return (
-      <div>
-        {/* <video width="320" height="240" controls>
-          <source src={require('./StreetPainter.mp4')} type="video/mp4"/>
-          Your browser does not support the video tag.
-        </video> */}
-        <ShowOrHide>
-          {({ show }) =>
-            <OddRow
-              show={show}
-              number="01"
-              headline="School Yourself"
-              quote="You have to be curious about the world in which you live. Look things up. Chase down every reference. Go deeper than anybody else - that’s how you’ll get ahead."
-              imgSrc={require('./drawing_small.jpg')}
-            />
-          }
-        </ShowOrHide>
-        <ShowOrHide>
-          {({ show }) =>
-            <EvenRow
-              number="02"
-              headline="Geography is no longer our master"
-              quote="If you’re not into the world you live in, you can build your own world around you. Surround yourself with books and objects that you love. Tape things up on the wall. Create your own world."
-              imgSrc={require('./geography_small.jpg')}
-              show={show}
-            />
-          }
-        </ShowOrHide>
-        <ShowOrHide>
-          {({ show }) =>
-            <OddRow
-              imageWidth={60}
-              mainBoxWidth={800}
-              number="03"
-              headline="Fake it till you make it"
-              quote={[
-                "1. Pretend to be something you’re not until you are - fake it until you’re successful, until everybody sees you the way you want them to; or",
-                "2. Pretend to be making something until you actually make something."
-              ]}
-              imgSrc={require('./violin_small.jpg')}
-              show={show}
-            />
-          }
-        </ShowOrHide>
-      </div>
+      <Container>
+        <LeftBox>
+          <h1>01</h1>
+        </LeftBox>
+        <RightBox>
+          <h1>School yourself</h1>
+          <Quote>You have to be curious about the world in which you live. Look things up. Chase down every reference. Go deeper than anybody else - that’s how you’ll get ahead.</Quote>
+          <Image src={require("./StreetPainter-thumbnail.png")} />
+        </RightBox>
+      </Container>
     );
   }
 }
